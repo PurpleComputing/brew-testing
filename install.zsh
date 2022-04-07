@@ -94,7 +94,7 @@ VERSION="1.4.1"
 
 # Logging config
 LOG_NAME="homebrew_install.log"
-LOG_DIR="/Library/Logs"
+LOG_DIR="/Library/Logs/com.purplecomputing.mdm"
 LOG_PATH="$LOG_DIR/$LOG_NAME"
 
 ###################################################################################################
