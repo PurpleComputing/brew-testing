@@ -6,6 +6,7 @@
 ##-------------------------------##
 ##         SET VARIABLES         ##
 LOGLOCAL=/Library/Logs/com.purplecomputing.mdm
+mkdir -p $LOGLOCAL
 exec &> $LOGLOCAL/InstallHomeBrewPowerShell.log
 chmod 777 $LOGLOCAL/InstallHomeBrewPowerShell.log
 
