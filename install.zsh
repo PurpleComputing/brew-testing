@@ -150,8 +150,9 @@ check_brew_install_status() {
     if [[ -n $brew_path   ]]; then
         # If the brew binary is found just run brew update and exit
         logging "info" "Homebrew already installed at $brew_path ..."
-
+        echo Status: "Homebrew already installed at $brew_path .." >> /var/tmp/depnotify.log
         logging "info" "Updating homebrew ..."
+        echo Status: "Updating homebrew ..." >> /var/tmp/depnotify.log
         /usr/bin/su - "$current_user" -c "$brew_path update --force" | /usr/bin/tee "$LOG_PATH"
 
         logging "info" "Done ..."
@@ -159,6 +160,7 @@ check_brew_install_status() {
 
     else
         logging "info" "Homebrew is not installed ..."
+        echo Status: "Homebrew is not installed, installing..." >> /var/tmp/depnotify.log
     fi
 }
 
@@ -339,8 +341,10 @@ brew_doctor() {
 
     if [[ $? -ne 0 ]]; then
         logging "error" "brew doctor has errors. Review logs to see if action needs to be taken ..."
+        echo Status: "Brew had some errors..." >> /var/tmp/depnotify.log
     else
         logging "info" "Homebrew installation complete! Your system is ready to brew."
+        echo Status: "Homebrew installation complete!" >> /var/tmp/depnotify.log
     fi
 }
 
